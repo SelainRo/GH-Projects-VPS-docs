@@ -4,6 +4,12 @@
 
 **Target OS:** Debian 13 (Bookworm)
 
+**Linux Kernel:** 6.12.43+deb13-amd64
+
+**OpenSSH Server:** OpenSSH_10.0p2 Debian-7 (OpenSSL 3.5.1 1 Jul 2025)
+
+**OpenSSH Client:** OpenSSH_9.6p1 Ubuntu-3ubuntu13.15 (OpenSSL 3.0.13 30 Jan 2024) 
+
 **Infrastructure:** 1 vCPU, 1 GB RAM VPS
 
 ---
@@ -53,19 +59,19 @@ During initial implementation, the server continued to prompt for passwords desp
 ### Diagnostic Process:
 
 1. Inspected active configuration directives:
+
 ```bash
 grep -v '^#' /etc/ssh/sshd_config | grep -v '^$'
 
 ```
 
-
 2. Identified inclusion directive: `Include /etc/ssh/sshd_config.d/*.conf`.
 3. Checked drop-in directory:
+
 ```bash
 ls -l /etc/ssh/sshd_config.d/
 
 ```
-
 
 4. Located `50-cloud-init.conf`, which contained a conflicting `PasswordAuthentication yes` directive.
 
@@ -109,6 +115,11 @@ Attempt standard key connection:
 
 ```bash
 ssh root@[IP_ADDRESS]
+
 ```
 
 * **Result:** Handshake succeeded, granting immediate access.
+
+---
+
+*Note: This technical document was generated with the assistance of an LLM.*

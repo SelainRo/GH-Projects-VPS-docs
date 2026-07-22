@@ -1,4 +1,4 @@
-# SSH Hardening and Key-Based Authentication Setup
+# Runbook: SSH Hardening and Key-Based Authentication Setup
 
 **Date:** July 2026
 
